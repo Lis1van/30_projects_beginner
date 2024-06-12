@@ -1,0 +1,121 @@
+<!--### HTML Код-->
+
+<!--#### Обзор HTML структуры-->
+
+<!--```html-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--	<meta charset="UTF-8">-->
+<!--	<meta name="viewport"-->
+<!--		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--	<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--	<title>Random Photos</title>-->
+<!--	<link rel="stylesheet" href="style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="image-container">-->
+<!--	<img src="https://picsum.photos/300?random=1" alt="">-->
+<!--	<img src="https://picsum.photos/300?random=2" alt="">-->
+<!--	<img src="https://picsum.photos/300?random=3" alt="">-->
+<!--	<img src="https://picsum.photos/300?random=4" alt="">-->
+<!--	<img src="https://picsum.photos/300?random=5" alt="">-->
+<!--	<img src="https://picsum.photos/300?random=" alt="">-->
+<!--</div>-->
+<!--<button class="btn">Learn more</button>-->
+<!--<script src="index.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+<!--```-->
+
+<!--### Блоки HTML кода и их описание-->
+
+<!--#### 1. Doctype и корневой элемент-->
+
+<!doctype html>
+<html lang="en">
+
+<!-- - **`<!doctype html>`**: Объявляет тип документа как HTML5.-->
+<!-- - **`<html lang="en">`**: Открывает корневой элемент HTML, устанавливая язык документа на английский (`lang="en"`).-->
+
+<!--#### 2. Head (Заголовок)-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Random Photos</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- - **`<meta charset="UTF-8">`**: Устанавливает кодировку символов документа как UTF-8, поддерживающую большинство символов.-->
+<!-- - **`<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">`**:-->
+<!-- - Конфигурирует поведение отображения на мобильных устройствах:-->
+<!-- - **`width=device-width`**: Устанавливает ширину области просмотра на ширину устройства.-->
+<!-- - **`user-scalable=no`**: Запрещает пользователям масштабировать страницу.-->
+<!-- - **`initial-scale=1.0`**: Устанавливает начальный уровень масштаба на 100%.-->
+<!-- - **`maximum-scale=1.0` и `minimum-scale=1.0`**: Ограничивает масштабирование до 100%.-->
+<!-- - **`<meta http-equiv="X-UA-Compatible" content="ie=edge">`**: Устанавливает режим совместимости в Edge для старых версий IE.-->
+<!-- - **`<title>Random Photos</title>`**: Устанавливает заголовок страницы, который отображается на вкладке браузера.-->
+<!-- - **`<link rel="stylesheet" href="style.css">`**: Подключает внешний файл стилей (`style.css`) для оформления страницы.-->
+
+<!--#### 3. Body (Тело документа)-->
+
+<body>
+
+<!-- - Открывает тело документа, где размещается основной контент страницы.-->
+
+<!--#### 4. Контейнер изображений-->
+
+<div class="image-container">
+	<img src="https://picsum.photos/300?random=1" alt="">
+	<img src="https://picsum.photos/300?random=2" alt="">
+	<img src="https://picsum.photos/300?random=3" alt="">
+	<img src="https://picsum.photos/300?random=4" alt="">
+	<img src="https://picsum.photos/300?random=5" alt="">
+	<img src="https://picsum.photos/300?random=" alt="">
+</div>
+
+<!-- - **`<div class="image-container">`**: Открывает контейнер для изображений с классом `image-container`.-->
+<!--	- **`<img src="https://picsum.photos/300?random=X" alt="">`**: Каждое изображение:-->
+<!--	- **`src`**: Ссылка на случайное изображение размером 300x300 пикселей,
+ предоставляемое сервисом [Picsum Photos](https://picsum.photos/). Параметр `?random=X` обеспечивает загрузку уникального
+ изображения при каждой перезагрузке страницы.-->
+<!--	- **`alt`**: Пустой атрибут `alt`, предназначенный для альтернативного текста (рекомендуется заполнять для улучшения доступности).-->
+<!--	- Последнее изображение не имеет числового параметра `?random=`, что делает его перезагрузку менее определенной.-->
+<!--	-->
+<!--	#### 5. Кнопка-->
+
+	<button class="btn">Learn more</button>
+
+<!--	- **`<button class="btn">Learn more</button>`**:-->
+<!--	- Создает кнопку с текстом "Learn more" и присваивает ей класс `btn`.-->
+<!--	- Будет стилизоваться с использованием CSS и возможно интерактивно управляться с помощью JavaScript.-->
+<!--	-->
+<!--	#### 6. Подключение JavaScript-->
+
+	<script src="index.js"></script>
+
+<!--	- **`<script src="index.js"></script>`**: Подключает внешний файл JavaScript (`index.js`),
+который будет содержать логику для динамического поведения страницы.-->
+<!--	-->
+<!--	#### 7. Закрытие тегов-->
+
+</body>
+</html>
+
+<!-- - Закрывает тело и HTML-документ.-->
+
+<!--### Общая концепция-->
+
+<!--Этот HTML-документ создает простую веб-страницу с заголовком и контейнером для отображения случайных изображений,
+загружаемых с сервиса Picsum Photos. Кнопка "Learn more" также присутствует, возможно, для дальнейших действий.
+Внешний файл CSS используется для стилизации, а внешний JavaScript-файл может добавлять интерактивные функции,
+такие как обновление изображений или анимации.-->
+
+<!--**Следующие шаги** включают:-->
+<!-- - Описание `style.css` для понимания визуального оформления.-->
+<!-- - Описание `index.js` для понимания интерактивности.-->
+
+<!--Если у вас есть какие-то конкретные вопросы по этому коду или по его модификации, дайте знать!-->
