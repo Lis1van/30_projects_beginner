@@ -3,6 +3,7 @@
 // Этот JavaScript код управляет интерактивностью веб-страницы с изображениями и кнопкой.
 // Рассмотрим каждый блок кода и разберем, как он работает.
 //
+let imageNum = 0;
 const imageContainerElement = document.querySelector('.image-container');
 const btnElement = document.querySelector('.btn');
 //
@@ -32,11 +33,17 @@ btnElement.addEventListener('click', () => {
 // - **`addNewImages();`**
 // - Вызывает функцию `addNewImages`, которая добавляет новые изображения в контейнер.
 //
+// Эта функция добавляет новые изображения в контейнер изображений
 function addNewImages() {
+    // Проходим через заданное количество раз
     for (let index = 0; index < imageNum; index++) {
+        // Создаем новый элемент изображения
         const newImgEl = document.createElement('img');
+        // Генерируем случайное число
         const randomNum = Math.floor(Math.random() * 2000); // Генерируем случайное число **внутри** цикла
+        // Устанавливаем источник изображения на случайный URL
         newImgEl.src = `https://picsum.photos/300?random=&${randomNum}`;
+        // Добавляем новое изображение в контейнер изображений
         imageContainerElement.appendChild(newImgEl);
     }
 }
