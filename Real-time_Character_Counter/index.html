@@ -1,0 +1,160 @@
+<!--В данном коде реализована функциональность для отслеживания количества символов в текстовом поле в режиме реального времени.
+Давайте детально разберем каждый блок HTML кода, чтобы понять, как это работает.-->
+
+<!--### HTML Структура-->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Real-time character counter</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+	<h2>Real-time character counter</h2>
+	<label for="textarea"></label>
+	<textarea id="textarea" class="textarea" placeholder="Please write your text here..." maxlength="150"></textarea>
+	<div class="counter-container">
+		<p>
+			Total characters:
+			<span id="total-counter" class="total-container">0</span>
+		</p>
+		<p>
+			Remaining:
+			<span id="remaining-counter" class="remaining-container"></span>
+		</p>
+	</div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
+
+<!--### Блоки HTML-->
+
+<!--#### `<!doctype html>` и `<html lang="en">`-->
+
+<!-- - **`<!doctype html>`**: Указывает на использование HTML5.-->
+<!-- - **`<html lang="en">`**: Открывающий тег `html` с атрибутом `lang`, который указывает,
+что язык содержимого страницы — английский. Это помогает поисковым системам и технологиям доступности.-->
+
+<!--#### `<head>`-->
+<!--	-->
+<!--	Этот блок содержит мета-информацию о странице.-->
+<!--	-->
+<!--	```html-->
+<!--	<head>-->
+<!--		<meta charset="UTF-8">-->
+<!--		<meta name="viewport"-->
+<!--			  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--		<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--		<title>Real-time character counter</title>-->
+<!--		<link rel="stylesheet" href="style.css">-->
+<!--	</head>-->
+<!--	```-->
+<!--	-->
+<!--	- **`<meta charset="UTF-8">`**: Устанавливает кодировку символов страницы на UTF-8, что поддерживает большинство символов.-->
+<!--	- **`<meta name="viewport"`**: Управляет масштабированием страницы на мобильных устройствах, обеспечивая адаптивный дизайн.-->
+<!--			   - `width=device-width`: Устанавливает ширину страницы равной ширине устройства.-->
+<!--			   - `initial-scale=1.0`: Устанавливает начальный масштаб страницы.-->
+<!--			   - `maximum-scale=1.0, minimum-scale=1.0`: Ограничивает масштабирование.-->
+<!--			   - **`<meta http-equiv="X-UA-Compatible" content="ie=edge">`**: Обеспечивает использование последней
+версии рендеринга в Internet Explorer.-->
+<!--	- **`<title>`**: Заголовок страницы, который отображается в закладке браузера или в результатах поиска.-->
+<!--		- **`<link rel="stylesheet" href="style.css">`**: Подключает внешний CSS файл для стилизации страницы.-->
+<!--		-->
+<!--		#### `<body>`-->
+<!--		-->
+<!--		Основное содержимое страницы размещено внутри тега `body`.-->
+<!--		-->
+<!--		```html-->
+<!--		<body>-->
+<!--		<div class="container">-->
+<!--		<h2>Real-time character counter</h2>-->
+<!--		<label for="textarea"></label>-->
+<!--		<textarea id="textarea" class="textarea" placeholder="Please write your text here..." maxlength="150"></textarea>-->
+<!--		<div class="counter-container">-->
+<!--		<p>-->
+<!--		Total characters:-->
+<!--		<span id="total-counter" class="total-container">0</span>-->
+<!--		</p>-->
+<!--		<p>-->
+<!--		Remaining:-->
+<!--		<span id="remaining-counter" class="remaining-container"></span>-->
+<!--		</p>-->
+<!--		</div>-->
+<!--		</div>-->
+<!--		<script src="index.js"></script>-->
+<!--		</body>-->
+<!--		```-->
+<!--		-->
+<!--		##### `<div class="container">`-->
+<!--		-->
+<!--		- **`<div class="container">`**: Контейнер, содержащий весь контент, связанный с счетчиком символов.-->
+<!--		-->
+<!--		##### `<h2>Real-time character counter</h2>`-->
+<!--		-->
+<!--		- **`<h2>`**: Заголовок второго уровня, указывающий на основную функциональность страницы — реальный подсчет символов.-->
+<!--		-->
+<!--		##### `<label for="textarea"></label>`-->
+<!--		-->
+<!--		- **`<label for="textarea"></label>`**: Тег `label`, связанный с `textarea` по атрибуту `for`. В данном случае,
+это скрытый лейбл, служащий для улучшения доступности, даже если визуально он не содержит текста.-->
+<!--		-->
+<!--		##### `<textarea id="textarea" class="textarea" placeholder="Please write your text here..." maxlength="150"></textarea>`-->
+<!--		-->
+<!--		- **`<textarea id="textarea" class="textarea" placeholder="Please write your text here..." maxlength="150"></textarea>`**:
+Поле многострочного текстового ввода:-->
+<!--		- **`id="textarea"`**: Уникальный идентификатор, позволяющий связывать его с другими элементами и
+обращаться к нему из JavaScript.-->
+<!--		- **`class="textarea"`**: Класс для стилизации.-->
+<!--		- **`placeholder="Please write your text here..."`**: Текст-подсказка, отображаемый внутри поля,
+ пока пользователь не начнет ввод.-->
+<!--		- **`maxlength="150"`**: Ограничивает ввод до 150 символов.-->
+<!--		-->
+<!--		##### `<div class="counter-container">`-->
+<!--		-->
+<!--		- **`<div class="counter-container">`**: Контейнер для отображения счетчиков символов.-->
+<!--		-->
+<!--		##### `<p>` с вложенными `<span>`-->
+<!--		-->
+<!--		```html-->
+<!--		<p>-->
+<!--		Total characters:-->
+<!--		<span id="total-counter" class="total-container">0</span>-->
+<!--		</p>-->
+<!--		<p>-->
+<!--		Remaining:-->
+<!--		<span id="remaining-counter" class="remaining-container"></span>-->
+<!--		</p>-->
+<!--		```-->
+<!--		-->
+<!--		- **`Total characters:`**: Текстовая метка для общего количества символов.-->
+<!--		- **`<span id="total-counter" class="total-container">0</span>`**:-->
+<!--		- **`id="total-counter"`**: Уникальный идентификатор для общего счетчика символов.-->
+<!--		- **`class="total-container"`**: Класс для стилизации.-->
+<!--		- **`0`**: Начальное значение, отображаемое до ввода текста.-->
+<!--		-->
+<!--		- **`Remaining:`**: Текстовая метка для оставшегося количества символов.-->
+<!--		- **`<span id="remaining-counter" class="remaining-container"></span>`**:-->
+<!--		- **`id="remaining-counter"`**: Уникальный идентификатор для счетчика оставшихся символов.-->
+<!--		- **`class="remaining-container"`**: Класс для стилизации.-->
+<!--		-->
+<!--		##### `<script src="index.js"></script>`-->
+<!--		-->
+<!--		- **`<script src="index.js"></script>`**: Подключение внешнего JavaScript файла, который будет содержать
+ логику для обновления счетчиков в режиме реального времени.-->
+<!--		-->
+<!--		### Обобщение-->
+<!--		-->
+<!--		Этот HTML документ создает интерфейс для текстового поля с подсчетом символов. Он включает в себя:-->
+<!--		-->
+<!--		- Основную структуру HTML.-->
+<!--		- Поле для ввода текста с ограничением по количеству символов.-->
+<!--		- Два счетчика: общий и оставшийся, которые будут обновляться по мере ввода текста пользователем.-->
+<!--		- Внешние файлы CSS и JavaScript для стилизации и логики соответственно.-->
+<!--		-->
+<!--		Теперь посмотрим, как JavaScript реализует логику этого функционала.-->
